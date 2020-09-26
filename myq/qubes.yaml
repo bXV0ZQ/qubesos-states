@@ -1,0 +1,12 @@
+dev:
+  templates:
+    - tmpl-dev-f32
+  appvms:
+    - dev
+    - dev-phone
+home:
+  templates:
+    - tmpl-home-f32
+  appvms:
+    - acsa
+    - home

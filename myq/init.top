@@ -1,0 +1,12 @@
+{% import_yaml 'myq/qubes.yaml' as qubes %}
+
+base:
+  'dom0':
+{% for dname, domain in qubes.items() %}
+{% for template in domain.templates %}
+    - myq.{{ dname }}.{{ template }}
+{% endfor %}
+{% for appvm in domain.appvms %}
+    - myq.{{ dname }}.{{ appvm }}
+{% endfor %}
+{% endfor %}
