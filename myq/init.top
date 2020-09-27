@@ -2,6 +2,7 @@
 
 base:
   'dom0':
+    - myq.dom0.config
 {% for dname, domain in qubes.items() %}
 {% for template in domain.templates %}
     - myq.{{ dname }}.{{ template }}
