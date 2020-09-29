@@ -11,3 +11,13 @@ base:
     - myq.{{ dname }}.{{ appvm }}
 {% endfor %}
 {% endfor %}
+{% for dname, domain in qubes.items() %}
+{% for template in domain.templates %}
+  '{{ template }}':
+    - myq.{{ dname }}.{{ template }}.config
+{% endfor %}
+{% for appvm in domain.appvms %}
+  '{{ appvm }}':
+    - myq.{{ dname }}.{{ appvm }}.config
+{% endfor %}
+{% endfor %}
