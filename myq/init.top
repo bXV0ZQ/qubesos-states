@@ -20,6 +20,7 @@ base:
     - myq.{{ dname }}.{{ template }}.config
 {% endfor %}
 {% for dvmtemplate in domain.dvmtemplates | default([]) %}
+  '{{ dvmtemplate }}':
     - myq.{{ dname }}.{{ dvmtemplate }}.config
 {% endfor %}
 {% for appvm in domain.appvms | default([]) %}
