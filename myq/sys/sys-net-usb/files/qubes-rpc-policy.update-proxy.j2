@@ -1,0 +1,10 @@
+# Upgrade Whonix TemplateVMs through sys-whonix
+$tag:whonix-updatevm $default allow,target=sys-whonix
+
+# Deny Whonix TemplateVMs using UpdatesProxy of any other VM.
+$tag:whonix-updatevm $anyvm deny
+
+# Default rule for all TemplateVMs - direct the connection to {{ netvm }}
+$type:TemplateVM $default allow,target={{ netvm }}
+
+$anyvm $anyvm deny
