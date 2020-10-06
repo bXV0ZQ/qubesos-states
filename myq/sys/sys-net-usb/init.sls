@@ -45,6 +45,7 @@ disposable: True
     - require:
       - qvm: {{ appvm_id(conf.name) }}-extra
 
+# Configure as clock VM
 {{ appvm_id(conf.name) }}-clockvm:
   cmd.run:
     - name: qubes-prefs clockvm {{ conf.name }}

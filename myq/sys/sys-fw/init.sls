@@ -23,13 +23,15 @@ memory: 500
     - require:
       - qvm: {{ appvm_id(conf.name) }}
 
-{{ appvm_id(conf.name) }}-default-netvn:
+# Configure as default net VM
+{{ appvm_id(conf.name) }}-default-netvm:
   cmd.run:
     - name: qubes-prefs default_netvm {{ conf.name }}
     - unless: test $(qubes-prefs default_netvm 2>/dev/null) = {{ conf.name }}
     - require:
       - qvm: {{ appvm_id(conf.name) }}-extra
 
+# Configure as dom0 update VM
 {{ appvm_id(conf.name) }}-updatevm:
   cmd.run:
     - name: qubes-prefs updatevm {{ conf.name }}
