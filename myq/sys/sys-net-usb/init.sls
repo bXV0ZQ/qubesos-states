@@ -1,4 +1,4 @@
-{% from 'myq/qubes/macros.jinja' import appvm_id with context %}
+{% from 'myq/qubes/macros.j2' import appvm_id with context %}
 
 {% load_yaml as conf %}
 name: sys-net-usb
