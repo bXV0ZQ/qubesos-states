@@ -1,2 +1,2 @@
 include:
-  - myq.zsh-terminal.qube.config
+  - myq.zsh-terminal.appvm.config
