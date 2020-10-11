@@ -16,8 +16,6 @@ disposable: True
     - prefs:
       - virt_mode: hvm
       - provides-network: True
-      - pcidevs: {{ (salt['grains.get']('pci_net_devs', []) + salt['grains.get']('pci_usb_devs', [])) | yaml }}
-      - pci_strictreset: False
     - features:
       - enable:
         - service.clocksync
@@ -26,6 +24,16 @@ disposable: True
         - service.meminfo-writer
     - require:
       - qvm: {{ appvm_id(conf.name) }}
+
+{{ appvm_id(conf.name) }}-pci:
+  qvm.vm:
+    - name: {{ conf.name }}
+    - prefs:
+      - pcidevs: {{ (salt['grains.get']('pci_net_devs', []) + salt['grains.get']('pci_usb_devs', [])) | yaml }}
+      - pci_strictreset: False
+    - unless: qvm-check --quiet --running {{ conf.name }} 2> /dev/null
+    - require:
+      - qvm: {{ appvm_id(conf.name) }}-extra
 
 #
 # Network related configuration
