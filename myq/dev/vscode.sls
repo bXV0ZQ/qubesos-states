@@ -1,8 +1,6 @@
 include:
   - myq.vscode.appvm.config
 
-# vscode settings
-
 vscode-settings-telemetry:
   file.accumulated:
     - name: code_settings
