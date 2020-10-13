@@ -3,3 +3,4 @@ include:
   - myq.zsh-terminal.tmpl.config
   - myq.vscode.package
   - myq.git.package
+  - myq.ssh.package
