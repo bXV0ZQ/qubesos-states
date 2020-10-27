@@ -15,7 +15,8 @@ sys:
   templates:
     - tmpl-sys-f32
   dvmtemplates:
-    - sys-dvm
+    - sys-net-usb-dvm
+    - sys-fw-dvm
   appvms:
     - sys-net-usb
     - sys-fw

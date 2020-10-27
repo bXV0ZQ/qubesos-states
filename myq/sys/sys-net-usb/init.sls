@@ -2,7 +2,7 @@
 
 {% load_yaml as conf %}
 name: sys-net-usb
-template: sys-dvm
+template: sys-net-usb-dvm
 network: False
 autostart: True
 disposable: True

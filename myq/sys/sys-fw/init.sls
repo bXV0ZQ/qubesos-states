@@ -2,7 +2,7 @@
 
 {% load_yaml as conf %}
 name: sys-fw
-template: sys-dvm
+template: sys-fw-dvm
 label: green
 netvm: sys-net-usb
 autostart: True
