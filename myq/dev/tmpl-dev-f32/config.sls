@@ -4,3 +4,4 @@ include:
   - myq.vscode.package
   - myq.git.package
   - myq.ssh.package
+  - myq.android-dev.package
