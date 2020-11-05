@@ -16,3 +16,7 @@
     - acsa
     - home
     - vault
+- name: whonix
+  qubes:
+    - sys-whonix
+    - whonix-dvm
