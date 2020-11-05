@@ -8,6 +8,8 @@ netvm: sys-net-usb
 autostart: True
 disposable: True
 memory: 500
+tags:
+  - fwvm
 {% endload%}
 
 {% include 'myq/qubes/appvm.sls' with context %}

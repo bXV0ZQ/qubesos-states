@@ -6,6 +6,9 @@ template: sys-net-usb-dvm
 network: False
 autostart: True
 disposable: True
+tags:
+  - netvm
+  - usbvm
 {% endload%}
 
 {% include 'myq/qubes/appvm.sls' with context %}
