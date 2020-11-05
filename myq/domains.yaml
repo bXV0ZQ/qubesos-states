@@ -1,0 +1,18 @@
+- name: sys
+  qubes:
+    - tmpl-sys-f32
+    - sys-net-usb-dvm
+    - sys-fw-dvm
+    - sys-net-usb
+    - sys-fw
+- name: dev
+  qubes:
+    - tmpl-dev-f32
+    - dev
+    - dev-phone
+- name: home
+  qubes:
+    - tmpl-home-f32
+    - acsa
+    - home
+    - vault

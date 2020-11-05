@@ -1,0 +1,9 @@
+{% import_yaml 'myq/domains.yaml' as domains %}
+
+base:
+  'dom0':
+{% for domain in domains | list %}
+{% for qube in domain.qubes | default([]) %}
+    - myq.{{ domain.name }}.{{ qube }}
+{% endfor %}
+{% endfor %}

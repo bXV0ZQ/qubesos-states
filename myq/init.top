@@ -1,30 +1,13 @@
-{% import_yaml 'myq/qubes.yaml' as qubes %}
+{% import_yaml 'myq/domains.yaml' as domains %}
 
 base:
   'dom0':
     - myq.dom0.config
-{% for dname, domain in qubes.items() %}
-{% for template in domain.templates | default([]) %}
-    - myq.{{ dname }}.{{ template }}
-{% endfor %}
-{% for dvmtemplate in domain.dvmtemplates | default([]) %}
-    - myq.{{ dname }}.{{ dvmtemplate }}
-{% endfor %}
-{% for appvm in domain.appvms | default([]) %}
-    - myq.{{ dname }}.{{ appvm }}
-{% endfor %}
-{% endfor %}
-{% for dname, domain in qubes.items() %}
-{% for template in domain.templates | default([]) %}
-  '{{ template }}':
-    - myq.{{ dname }}.{{ template }}.config
-{% endfor %}
-{% for dvmtemplate in domain.dvmtemplates | default([]) %}
-  '{{ dvmtemplate }}':
-    - myq.{{ dname }}.{{ dvmtemplate }}.config
-{% endfor %}
-{% for appvm in domain.appvms | default([]) %}
-  '{{ appvm }}':
-    - myq.{{ dname }}.{{ appvm }}.config
+{% for domain in domains | list %}
+{% for qube in domain.qubes | default([]) %}
+{% if not ((salt['pillar.get']('salt-modules:topd:topd_base_state') ~ '/myq/' ~ domain.name ~ '/' ~ qube ~ '/config.sls') | is_empty_file) %}
+  '{{ qube }}':
+    - myq.{{ domain.name }}.{{ qube }}.config
+{% endif %}
 {% endfor %}
 {% endfor %}
